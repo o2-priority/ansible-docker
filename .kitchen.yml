@@ -28,7 +28,7 @@ platforms:
       provision_command:
         - apt-get update
         - apt-get install -y iproute git python-pip curl
-        - pip install ansible pyopenssl
+        - pip install ansible==2.5.6 pyopenssl
   - name: centos-7.2
     driver_config:
       image: centos/systemd

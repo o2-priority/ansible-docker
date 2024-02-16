@@ -34,6 +34,7 @@
 
 - name: stop nftables service
   service: name=nftables state=stopped
+  ignore_errors: yes
 
 - name: Ensure nftables is not installed
   apt: name=nftables state=absent purge=yes

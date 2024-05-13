@@ -79,12 +79,12 @@
     - docker-py
     - requests    # uninstall to force reinstall via next task
 
-- name: install and trust python certs
+- name: install websocket-client 0.59.0 version
   shell: pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org websocket-client==0.59.0
 
 ## Fix for the issue cause due to the latest version of websocket client, docker operation were failing for docker-py lib
-- name: install websocket-client 0.59.0 version
-  shell: pip install websocket-client==0.59.0
+# - name: install websocket-client 0.59.0 version
+#   shell: pip install websocket-client==0.59.0
 
 ## Fix for the issue cause due to the latest version of certifi , docker operation were failing for docker-py lib
 - name: install certifi 2021.10.8 version

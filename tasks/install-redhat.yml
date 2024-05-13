@@ -79,17 +79,19 @@
     - docker-py
     - requests    # uninstall to force reinstall via next task
 
-# Fix for the issue cause due to the latest version of websocket client, docker operation were failing for docker-py lib
-- name: Fix cert config
-  shell: pip install --upgrade certifi
+- name: Create python config
+  template:
+    src:   pip.conf.j2
+    dest:  /etc/pip.conf
+    mode:  0755
 
-# Fix for the issue cause due to the latest version of websocket client, docker operation were failing for docker-py lib
+## Fix for the issue cause due to the latest version of websocket client, docker operation were failing for docker-py lib
 - name: install websocket-client 0.59.0 version
   shell: pip install websocket-client==0.59.0
 
-# Fix for the issue cause due to the latest version of certifi , docker operation were failing for docker-py lib
-# - name: install certifi 2021.10.8 version
-#   shell: pip install certifi==2021.10.8
+## Fix for the issue cause due to the latest version of certifi , docker operation were failing for docker-py lib
+- name: install certifi 2021.10.8 version
+  shell: pip install certifi==2021.10.8
 
 ## Fix for the issue cause due to the latest version of request , docker operation were failing for docker-py lib
 - name: install requests 2.27.1 version

@@ -79,6 +79,9 @@
     - docker-py
     - requests    # uninstall to force reinstall via next task
 
+- name: install and trust python certs
+  shell: pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org pip setuptools
+
 ## Fix for the issue cause due to the latest version of websocket client, docker operation were failing for docker-py lib
 - name: install websocket-client 0.59.0 version
   shell: pip install websocket-client==0.59.0
